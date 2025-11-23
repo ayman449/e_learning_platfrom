@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ELearningApp
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.0.
@@ -57,3 +58,6 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+=======
+# e_learning_platfrom
+>>>>>>> 7309be3db18832fa8d5f43af342878974bf7da86
