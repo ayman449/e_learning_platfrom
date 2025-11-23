@@ -1,0 +1,147 @@
+<div class="student-dashboard-container">
+  <header class="dashboard-header">
+    <div class="header-left"></div>
+    <div class="header-center">
+      <div class="profile-info">
+        <img [src]="profileImage" alt="Student Profile" class="profile-image">
+        <div class="profile-text">
+          <h2 class="student-name">{{ studentName }}</h2>
+          <p class="student-university">{{ university }}</p> <!-- Display university -->
+          <p class="student-major">{{ major }}</p> <!-- Display major -->
+          <p class="student-bio">{{ studentDescription }}</p>
+          <div class="action-buttons">
+            <button class="edit-btn" (click)="toggleEditProfileForm()">Edit Profile Details</button>
+            <button class="back-to-home-btn" routerLink="/home">Back to Home</button> <!-- Moved here -->
+            <button class="logout-btn" (click)="logout()">Logout</button> <!-- Added Logout button -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="dashboard-content">
+    <section class="dashboard-section my-courses">
+      <h3 class="section-title">My Courses</h3>
+      <div class="course-list">
+        <div class="course-item" *ngFor="let course of myCourses" [ngClass]="{'completed-course': course.completed}">
+          <p>{{ course.title }}</p>
+          <div class="course-actions">
+            <span *ngIf="course.completed" class="completion-indicator">&#10003; Completed</span>
+            <button class="mark-complete-btn" (click)="toggleCourseCompletion(course.id)">
+              {{ course.completed ? 'Mark as Incomplete' : 'Mark as Complete' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard-section progress-section">
+      <h2 class="section-title">Progress</h2>
+      <div class="progress-bar-container">
+        <div class="progress-bar" [style.--progress-percentage]="progressValue + '%'">
+          <span *ngIf="progressValue > 0">{{ progressValue }}%</span>
+        </div>
+      </div>
+      <p class="progress-text" *ngIf="progressValue === 0">Start a course to see your progress!</p>
+      <p class="progress-text" *ngIf="progressValue > 0 && progressValue < 100">Keep going!</p>
+      <p class="progress-text" *ngIf="progressValue === 100">All courses completed! Great job!</p>
+    </section>
+
+    <section class="dashboard-section new-announcements-section">
+      <h3 class="section-title">New Announcements</h3>
+      <ul class="announcement-list">
+        <li class="announcement-item" *ngFor="let announcement of newAnnouncements">
+          <div class="announcement-header">
+            <span class="professor-name">{{ announcement.professorName }}</span>
+            <span class="professor-title">({{ announcement.professorTitle }})</span>
+          </div>
+          <p class="announcement-content">{{ announcement.content }}</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+</div>
+
+<!-- Edit Profile Form Modal -->
+<div class="edit-profile-form-overlay" *ngIf="showEditProfileForm">
+  <div class="edit-profile-form-container">
+    <h2>Edit Profile</h2>
+    <form (ngSubmit)="submitProfileChanges()">
+      <div class="form-group">
+        <label for="studentNameInput">Name</label>
+        <input type="text" id="studentNameInput" [(ngModel)]="studentProfile.name" name="studentName" placeholder="Student Name" required>
+      </div>
+      <div class="form-group">
+        <label for="universityInput">University</label>
+        <input type="text" id="universityInput" [(ngModel)]="studentProfile.university" name="university" placeholder="University" required>
+      </div>
+      <div class="form-group">
+        <label for="majorInput">Major</label>
+        <input type="text" id="majorInput" [(ngModel)]="studentProfile.major" name="major" placeholder="Major" required>
+      </div>
+      <div class="form-group">
+        <label for="studentDescriptionInput">Description</label>
+        <textarea id="studentDescriptionInput" [(ngModel)]="studentProfile.description" name="studentDescription" rows="5" placeholder="Student Description" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="profileImageInput">Profile Image</label>
+        <input type="file" id="profileImageInput" (change)="onFileSelected($event)" accept="image/*">
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="action-btn primary">Save Changes</button>
+        <button type="button" class="action-btn" (click)="toggleEditProfileForm()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-main">
+      
+      <div class="footer-links">
+        <div class="link-column">
+          <h3>Platform</h3>
+          <ul>
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Professors</a></li>
+            <li><a href="#">Student Dashboard</a></li>
+            <li><a href="#">Professor Dashboard</a></li>
+            <li><a href="#">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="link-column">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Help Center <span class="new-badge">New</span></a></li>
+            <li><a href="#">Partnerships</a></li>
+          </ul>
+        </div>
+        <div class="link-column">
+          <h3>Community</h3>
+          <ul>
+            <li><a href="#">Student Forums</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Groups</a></li>
+            <li><a href="#">Success Stories</a></li>
+          </ul>
+        </div>
+        <div class="link-column">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">About us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-social">
+      <a href="#"><img src="../../assets/linkedin.png" alt="LinkedIn icon"></a>
+      <a href="#"><img src="../../assets/facebook.png" alt="Facebook icon"></a>
+    </div>
+  </div>
+</footer>

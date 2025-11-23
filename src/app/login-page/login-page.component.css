@@ -1,0 +1,278 @@
+
+.login-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  min-height: 100vh;
+  background-color:#631d99; 
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+  color: #333;
+}
+
+
+.illustration-section {
+  flex: 1; 
+  min-width: 50%;
+  height: 100vh;
+
+  background-image: url('../../assets/login_image.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+
+.login-form-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #631d99; 
+  min-height: 100vh; /* Ensure it takes full height */
+  width: 50%;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Consistent shadow */
+}
+
+/* Content wrapper inside the form section */
+.login-form-content {
+  padding: 60px 40px; /* More generous padding */
+  max-width: 450px; /* Slightly wider form */
+  width: 100%;
+  box-shadow: none; /* Remove redundant shadow */
+  border-radius: 10px;
+  text-align: center;
+}
+
+
+.form{
+background-color: white;
+padding-left: 40px;
+padding-right: 40px;
+border-radius: 20px;
+padding-top:20px;
+padding-bottom:20px;
+box-shadow:0 20px 50px 0 #ffffff9e;
+}
+
+/* Logo as background */
+.login-form-section .logo {
+  height: 60px; /* Slightly larger logo */
+  width: 180px;
+  margin: 0 auto 40px auto; /* More margin */
+  background-image: url('../../assets/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Heading */
+.login-form-section h2 {
+  font-size: 2.5em; /* Larger heading */
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: 700; /* Bolder font */
+}
+
+.login-form-section form input {
+  width: 100%; /* Full width */
+  padding: 14px 15px; /* More padding */
+  margin-bottom: 18px; /* Consistent margin */
+  border: 1px solid #e0e0e0; /* Softer border */
+  border-radius: 8px; /* More rounded corners */
+  font-size: 1em;
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.login-form-section form input::placeholder {
+  color: #bbb;
+}
+
+/* User Type Selection */
+.user-type-selection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* Increased gap slightly */
+  margin-bottom: 25px; /* More space below */
+}
+
+.user-type-selection .user-type-phrase {
+  font-size: 1em;
+  color: #333;
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+.user-type-selection label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1em;
+  color: #555;
+  transition: color 0.2s ease;
+}
+
+.user-type-selection label:hover {
+  color: #6a0dad;
+}
+
+.user-type-selection input[type="radio"] {
+  appearance: none;
+  width: 20px; /* Slightly larger radio button */
+  height: 20px;
+  border: 2px solid #ccc; /* Softer border color */
+  border-radius: 50%;
+  margin-right: 8px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.user-type-selection input[type="radio"]:checked {
+  background-color: #6a0dad;
+  border-color: #6a0dad;
+}
+
+.user-type-selection input[type="radio"]:checked::before {
+  content: '';
+  width: 10px; /* Larger inner dot */
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.user-type-selection input[type="radio"]:hover {
+  border-color: #6a0dad; /* Highlight border on hover */
+  box-shadow: 0 0 8px rgba(106, 13, 173, 0.3); /* Softer shadow */
+}
+
+/* Recovery link */
+.login-form-section .recovery-password {
+  color: #6a0dad;
+  text-decoration: none;
+  font-size: 0.95em; /* Slightly larger font */
+  display: block;
+  text-align: right;
+  margin-top: -5px; /* Adjust margin */
+  margin-bottom: 25px; /* More space below */
+  transition: color 0.2s ease;
+}
+
+.login-form-section .recovery-password:hover {
+  color: #5a099a;
+}
+
+/* Login button */
+.login-form-section .login-btn {
+  width: 100%;
+  background-color: #6a0dad;
+  color: #fff;
+  border: none;
+  padding: 15px; /* More padding */
+  border-radius: 8px; /* More rounded corners */
+  font-size: 1.15em; /* Slightly larger font */
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 5px 15px rgba(106, 13, 173, 0.3); /* Button shadow */
+}
+
+.login-form-section .login-btn:hover {
+  background-color: #5a099a;
+  transform: translateY(-2px); /* Subtle lift effect */
+  box-shadow: 0 8px 20px rgba(106, 13, 173, 0.4);
+}
+
+/* Divider */
+.divider {
+  margin: 35px 0; /* More margin */
+  color: #ccc; /* Lighter color */
+  position: relative;
+  font-size: 0.9em; /* Smaller font for divider text */
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 35%; /* Slightly smaller width */
+  height: 1px;
+  background-color: #eee;
+}
+
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+/* Social login buttons with background images */
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px; /* More space above */
+}
+
+.social-btn {
+  width: 55px; /* Slightly larger social buttons */
+  height: 55px;
+  border: 1px solid #e0e0e0; /* Softer border */
+  border-radius: 50%; /* Make them round */
+  background-color: #fff;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-size: 50% auto; /* Adjust icon size */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.social-btn:hover {
+  border-color: #6a0dad;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+}
+
+.social-btn.google {
+  background-image: url('../../assets/search.png');
+}
+
+.social-btn.linkedin {
+  background-image: url('../../assets/linkedin.png');
+}
+
+.social-btn.github {
+  background-image: url('../../assets/github.png');
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column; /* Stack elements on smaller screens */
+    padding: 20px;
+  }
+
+  .illustration-section {
+    display: none; /* Hide illustration on small screens to save space */
+  }
+
+  .login-form-section {
+    width: 100%;
+    height: auto;
+    border-radius: 15px; /* Rounded corners for the whole card */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .login-form-content {
+    padding: 40px 30px;
+  }
+
+  .login-form-section h2 {
+    font-size: 2em;
+  }
+
+  .social-login {
+    flex-wrap: wrap; /* Allow social buttons to wrap */
+  }
+}
